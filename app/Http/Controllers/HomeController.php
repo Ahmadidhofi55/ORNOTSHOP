@@ -26,7 +26,19 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function adminHome(){
-        return view('admin.home');
+    public function getCpuInfo()
+    {
+        $cpuinfo = [];
+        if (is_file('/proc/cpuinfo')) {
+            $cpuinfo = file('/proc/cpuinfo');
+        }
+        return $cpuinfo;
+    }
+
+
+    public function adminHome()
+    {
+        $cpuinfo = $this->getCpuInfo();
+        return view('admin.home',compact('cpuinfo'));
     }
 }
