@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kategori;
 use App\Models\produk;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,8 @@ class produkController extends Controller
      */
     public function create()
     {
-        //
+        $kategori = kategori::paginate();
+        return view('produk.create',compact('kategori'));
     }
 
     /**
@@ -36,8 +38,38 @@ class produkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'nm_produk' => 'required',
+            'kategori' => 'required',
+            'merek' => 'required',
+            'deskripsi'=> 'required',
+            'img' => 'required|mimes:png,jpg,svg',
+            'harga' => 'required|numeric',
+            'stock' => 'require|numeric',
+        ]);
+
+        $image = $request->file('img')->store('public/image');
+        $image = str_replace('public/','storage/',$image);
+
+        $produk = produk::create([
+            'nm_produk' => $request->nm_produk,
+            'kategori' => $request->kategori,
+            'merek' => $request->merek,
+            'deskripsi'=> $request->deskripsi,
+            'img' => $image,
+            'harga' => $request->harga,
+            'stock' => $request->stock,
+        ]);
+
+         if ($produk) {
+            return redirect()->route('produk.index')->with(['error','Data Berhasil Ditambahkan']);
+        } else {
+            return redirect()->route('produk.index')->with(['error','Data Gagal Ditambahkan']);
+        }
+
     }
+
+
 
     /**
      * Display the specified resource.

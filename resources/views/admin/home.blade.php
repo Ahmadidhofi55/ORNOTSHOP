@@ -23,7 +23,7 @@
                 <span class="info-box-icon bg-red"><i class=" fa fa-sort-down"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">incoming orders</span>
+                    <span class="info-box-text">Order masuk</span>
                     <span class="info-box-number">41,410</span>
                 </div>
                 <!-- /.info-box-content -->
@@ -40,7 +40,7 @@
                 <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Product</span>
+                    <span class="info-box-text">Produk</span>
                     <span class="info-box-number">760</span>
                 </div>
                 <!-- /.info-box-content -->
@@ -179,4 +179,6 @@
         </div>
     </div>
     <!-- /.row -->
+    @section('header','Dashboard')
+    @section('aktif','Dashboard')
 @endsection

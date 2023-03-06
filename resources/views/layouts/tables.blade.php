@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>OrnotShop | @yield('title')</title>
+    <title> @yield('title') </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -13,13 +13,21 @@
     <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- jvectormap -->
-    <link rel="styleshe  <!-- Theme style -->et" href="/bower_components/jvectormap/jquery-jvectormap.css">
-    <!-- Select2 -->
-    <link rel="stylesheet" href="/bower_components/select2/dist/css/select2.min.css">
-
+    <!-- DataTables -->
+    <link rel="stylesheet" href="/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
     <!-- Google Font -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -125,26 +133,26 @@
                         <a href="#">
                             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                             <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
+                              <i class="fa fa-angle-left pull-right"></i>
                             </span>
-                        </a>
-                        <ul class="treeview-menu">
+                          </a>
+                          <ul class="treeview-menu">
                             <li><a href="{{ route('admin.home') }}"><i class="fa fa-dashboard"></i> Dashboard </a></li>
-                        </ul>
+                          </ul>
                     </li>
                     <li class=" treeview">
                         <a href="#">
                             <i class="fa fa-archive"></i> <span>Produk</span>
                             <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
+                              <i class="fa fa-angle-left pull-right"></i>
                             </span>
-                        </a>
-                        <ul class="treeview-menu">
+                          </a>
+                          <ul class="treeview-menu">
                             <li><a href="{{ route('produk.index') }}"><i class="fa fa-eye"></i> Produk View </a></li>
-                            <li><a href="{{ route('produk.create') }}"><i class="fa fa-plus-square"></i> Produk Create
-                                </a></li>
-                        </ul>
+                            <li><a href="{{ route('produk.create') }}"><i class="fa fa-plus-square"></i> Produk Create </a></li>
+                          </ul>
                     </li>
+
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -270,35 +278,36 @@
 
     </div>
     <!-- ./wrapper -->
+    <!-- ./wrapper -->
 
     <!-- jQuery 3 -->
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="/bower_components/fastclick/lib/fastclick.js"></script>
-    <!-- Select2 -->
-<script src="/bower_components/select2/dist/js/select2.full.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="/dist/js/adminlte.min.js"></script>
-    <!-- Sparkline -->
-    <script src="/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-    <!-- jvectormap  -->
-    <script src="/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- DataTables -->
+    <script src="/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <!-- SlimScroll -->
     <script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <!-- ChartJS -->
-    <script src="/bower_components/chart.js/Chart.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="/dist/js/pages/dashboard2.js"></script>
+    <!-- FastClick -->
+    <script src="/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="/dist/js/demo.js"></script>
+    <!-- page script -->
     <script>
         $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-})
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
     </script>
 </body>
 

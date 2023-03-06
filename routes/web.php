@@ -30,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('produk',produkController::class);
+    Route::get('/produk',[produkController::class,'detail'])->name('produk.index');
     Route::resource('kategori',kategoriController::class);
 });
 //route group
