@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Dashboard')
+@section('title','Admin Dashboard')
 @section('contend')
     <!-- Info boxes -->
     <div class="row">

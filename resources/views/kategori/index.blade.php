@@ -1,5 +1,5 @@
 @extends('layouts.tables')
-@section('title','Produk view')
+@section('title','Kategori view')
 @section('contend')
 <div class="box">
     @if (session()->has('success'))
@@ -13,7 +13,7 @@
 </div>
 @endif
     <div class="box-header">
-        <a href="{{ route('produk.create') }}" class=" btn btn-primary">Create</a>
+        <a href="{{ route('kategori.create') }}" class=" btn btn-primary">Create</a>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
@@ -21,13 +21,8 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Nama Produk</th>
                     <th>Kategori</th>
-                    <th>Merek</th>
-                    <th>Deskripsi</th>
                     <th>img</th>
-                    <th>Harga</th>
-                    <th>Stock</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -35,23 +30,17 @@
                 @php
                 $no = 1;
                 @endphp
-                @forelse ($produk as $item)
-
+                @forelse ($kategori as $item)
                 <tr>
                     <td>{{ $no++ }}.</td>
-                    <td>{{ $item->nm_produk }}</td>
                     <td>{{ $item->kategori }}</td>
-                    <td>{{ $item->merek }}</td>
-                    <td>{{ $item->deskripsi }}</td>
                     <td><img src="{{ asset($item->img) }}" alt="{{ $item->nm_produk }}" width="80px" height="80px" class=""></td>
-                    <td>{{ $item->harga }}</td>
-                    <td>{{ $item->stock }}</td>
                     <td class="text-center">
                         <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                            action="{{ route('produk.destroy', $item->id) }}" method="POST">
-                            <a href="{{ route('produk.edit', $item->id) }}" class="btn btn-sm btn-primary"><i
+                            action="{{ route('kategori.destroy', $item->id) }}" method="POST">
+                            <a href="{{ route('kategori.edit', $item->id) }}" class="btn btn-sm btn-primary"><i
                                     class="fa fa-edit"></i></a>
-                              
+
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
@@ -72,6 +61,6 @@
     <!-- /.box-body -->
 </div>
 
-@section('header', 'Produk')
-@section('aktif', 'Produk')
+@section('header', 'Kategori')
+@section('aktif', 'Kategori')
 @endsection

@@ -134,6 +134,19 @@
                     </li>
                     <li class=" treeview">
                         <a href="#">
+                            <i class="fa fa-user"></i> <span>User</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href=""><i class="fa fa-eye"></i> User View </a></li>
+                            <li><a href=""><i class="fa fa-plus-square"></i> User Create
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li class=" treeview">
+                        <a href="#">
                             <i class="fa fa-archive"></i> <span>Produk</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -142,6 +155,32 @@
                         <ul class="treeview-menu">
                             <li><a href="{{ route('produk.index') }}"><i class="fa fa-eye"></i> Produk View </a></li>
                             <li><a href="{{ route('produk.create') }}"><i class="fa fa-plus-square"></i> Produk Create
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li class=" treeview">
+                        <a href="#">
+                            <i class="fa fa-circle-o"></i> <span>Kategori</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ route('kategori.index') }}"><i class="fa fa-eye"></i> Kategori View </a></li>
+                            <li><a href="{{ route('kategori.create') }}"><i class="fa fa-plus-square"></i> Kategori Create
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li class=" treeview">
+                        <a href="#">
+                            <i class="fa fa-cc"></i> <span>Merek</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ route('merek.index') }}"><i class="fa fa-eye"></i> Merek View </a></li>
+                            <li><a href="{{ route('merek.create') }}"><i class="fa fa-plus-square"></i> Merek Create
                                 </a></li>
                         </ul>
                     </li>

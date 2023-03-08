@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\kategoriController;
+use App\Http\Controllers\merekController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\produkController;
+use App\Http\Controllers\userController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -25,13 +27,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('admin/home',[HomeController::class,'adminHome'])->name('admin.home')->middleware('is_admin');
+Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::resource('produk',produkController::class);
-    Route::get('/produk',[produkController::class,'detail'])->name('produk.index');
-    Route::resource('kategori',kategoriController::class);
+    Route::resource('produk', produkController::class);
+    Route::get('/produk', [produkController::class, 'detail'])->name('produk.index');
+    Route::resource('/kategori', kategoriController::class);
+    Route::resource('/merek', merekController::class)->except([
+        'show'
+    ]);
 });
 //route group
-

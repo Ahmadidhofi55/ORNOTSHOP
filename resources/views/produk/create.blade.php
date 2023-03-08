@@ -20,16 +20,18 @@
         @enderror
         <div class="form-group">
             <label>Kategori</label>
-            <select  class="form-control select2" style="width: 100%;">
+            <select name="kategori" id="kategori" class="form-control select2" style="width: 100%;">
                 @foreach ($kategori as $item)
-                <option value="{{ $item->id }}" {{ $item->id == $item->id ? 'selected' : '' }}>{{ $item->kategori }}</option>
+                <option  value="{{ $item->kategori }}" {{ $item->id == $item->id ? 'selected' : '' }}>{{ $item->kategori }}</option>
                 @endforeach
             </select>
           </div>
           <div class="form-group">
             <label>Merek</label>
-            <select class="form-control select2" style="width: 100%;">
-              <option selected="selected"></option>
+            <select name="merek" id="merek" class="form-control select2" style="width: 100%;">
+                @foreach ($merek as $item)
+                <option value="{{ $item->merek }}" {{ $item->id == $item->id ? 'selected' : '' }}>{{ $item->merek }}</option>
+                @endforeach
             </select>
           </div>
           <div class="form-group">
@@ -79,7 +81,8 @@
     </div>
 
     <div class="box-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
       </div>
 </form>
 @section('header','Create Produk')

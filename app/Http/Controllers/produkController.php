@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kategori;
+use App\Models\merek;
 use App\Models\produk;
+use App\Models\kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class produkController extends Controller
 {
@@ -27,7 +29,8 @@ class produkController extends Controller
     public function create()
     {
         $kategori = kategori::paginate();
-        return view('produk.create',compact('kategori'));
+        $merek = merek::paginate();
+        return view('produk.create',compact('kategori','merek'));
     }
 
     /**
@@ -38,14 +41,14 @@ class produkController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        $this->validate($request, [
             'nm_produk' => 'required',
             'kategori' => 'required',
             'merek' => 'required',
-            'deskripsi'=> 'required',
-            'img' => 'required|mimes:png,jpg,svg',
+            'deskripsi'=> 'required|min:16',
+            'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'harga' => 'required|numeric',
-            'stock' => 'require|numeric',
+            'stock' => 'required|numeric',
         ]);
 
         $image = $request->file('img')->store('public/image');
@@ -61,11 +64,7 @@ class produkController extends Controller
             'stock' => $request->stock,
         ]);
 
-         if ($produk) {
-            return redirect()->route('produk.index')->with(['error','Data Berhasil Ditambahkan']);
-        } else {
-            return redirect()->route('produk.index')->with(['error','Data Gagal Ditambahkan']);
-        }
+        return redirect()->route('produk.index')->with(['success' => 'Data Berhasil Ditambahkan']);
 
     }
 
@@ -90,7 +89,9 @@ class produkController extends Controller
      */
     public function edit(produk $produk)
     {
-        //
+        $kategori = kategori::paginate();
+        $merek = merek::paginate();
+        return view('produk.edit',compact('produk','kategori','merek'));
     }
 
     /**
@@ -102,8 +103,53 @@ class produkController extends Controller
      */
     public function update(Request $request, produk $produk)
     {
-        //
+        $this->validate($request, [
+            'nm_produk' => 'required',
+            'kategori' => 'required',
+            'merek' => 'required',
+            'deskripsi'=> 'required|min:16',
+            'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'harga' => 'required|numeric',
+            'stock' => 'required|numeric',
+        ]);
+
+        if ($request->hasFile('image')) {
+
+            //upload new image
+            $image = $request->file('img')->store('public/image');
+            $image = str_replace('public/','storage/',$image);
+
+            //delete old image
+            Storage::delete(str_replace('storage/', 'public/', $produk->img));
+
+            //update post with new image
+            $produk->update([
+                'nm_produk' => $request->nm_produk,
+                'kategori' => $request->kategori,
+                'merek' => $request->merek,
+                'deskripsi'=> $request->deskripsi,
+                'img' => $image,
+                'harga' => $request->harga,
+                'stock' => $request->stock,
+            ]);
+
+        } else {
+
+            //update post without image
+            $produk->update([
+                'nm_produk' => $request->nm_produk,
+                'kategori' => $request->kategori,
+                'merek' => $request->merek,
+                'deskripsi'=> $request->deskripsi,
+                'harga' => $request->harga,
+                'stock' => $request->stock,
+            ]);
+        }
+
+        //redirect to index
+        return redirect()->route('produk.index')->with(['success' => 'Data Berhasil Diubah!']);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -113,6 +159,12 @@ class produkController extends Controller
      */
     public function destroy(produk $produk)
     {
-        //
+        if ($produk->img) {
+            Storage::delete(str_replace('storage/', 'public/', $produk->img));
+            $produk->save();
+            $produk->delete();
+            return redirect()->route('produk.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        }
+
     }
 }
