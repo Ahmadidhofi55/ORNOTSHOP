@@ -5,6 +5,7 @@ use App\Http\Controllers\kategoriController;
 use App\Http\Controllers\merekController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\produkController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\userController;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Auth;
@@ -31,6 +32,7 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
+    Route::resource('/profil',ProfilController::class);
     Route::resource('produk', produkController::class);
     Route::get('/produk', [produkController::class, 'detail'])->name('produk.index');
     Route::resource('/kategori', kategoriController::class);

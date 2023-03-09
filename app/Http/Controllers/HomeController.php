@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kategori;
+use App\Models\merek;
+use App\Models\produk;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,19 +30,16 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function getCpuInfo()
-    {
-        $cpuinfo = [];
-        if (is_file('/proc/cpuinfo')) {
-            $cpuinfo = file('/proc/cpuinfo');
-        }
-        return $cpuinfo;
-    }
-
-
     public function adminHome()
     {
-        $cpuinfo = $this->getCpuInfo();
-        return view('admin.home',compact('cpuinfo'));
+        $produk = produk::paginate();
+        $kategori = kategori::paginate();
+        $merek = merek::paginate();
+        $user = User::paginate();
+        $user = count($user);
+        $produk = count($produk);
+        $kategori = count($kategori);
+        $merek = count($merek);
+        return view('admin.home',compact('user','produk','merek','kategori'));
     }
 }

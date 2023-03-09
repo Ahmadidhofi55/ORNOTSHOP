@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+                <span class="info-box-icon bg-aqua"><i class="fa fa-money"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">CPU Traffic</span>
-                    @foreach($cpuinfo as $info)
-                    <span class="info-box-number">{{ $info }}<small>%</small></span>
-                    @endforeach
+                    <span class="info-box-text">Total Income</span>
+
+                    <span class="info-box-number"><small></small></span>
+
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -20,7 +20,7 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-red"><i class=" fa fa-sort-down"></i></span>
+                <span class="info-box-icon bg-red"><i class="fa fa-external-link-square"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Order masuk</span>
@@ -37,11 +37,11 @@
 
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+                <span class="info-box-icon  bg-maroon"><i class="ion ion-ios-cart-outline"></i></span>
 
                 <div class="info-box-content">
                     <span class="info-box-text">Produk</span>
-                    <span class="info-box-number">760</span>
+                    <span class="info-box-number">{{ $produk }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -50,17 +50,41 @@
         <!-- /.col -->
         <div class="col-md-3 col-sm-6 col-xs-12">
             <div class="info-box">
-                <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+                <span class="info-box-icon bg-fuchsia"><i class="ion ion-ios-people-outline"></i></span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Total Members</span>
-                    <span class="info-box-number">2,000</span>
+                    <span class="info-box-text">Users</span>
+                    <span class="info-box-number">{{ $user }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
         </div>
         <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow"><i class="fa fa-caret-square-o-right"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Order Di proses</span>
+                    <span class="info-box-number">{{ $user }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon  bg-green"><i class="fa fa-paper-plane-o"></i></span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Order Dikirm</span>
+                    <span class="info-box-number">{{ $user }}</span>
+                </div>
+                <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+        </div>
     </div>
     <!-- /.row -->
 

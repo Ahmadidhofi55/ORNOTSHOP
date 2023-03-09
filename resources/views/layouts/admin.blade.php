@@ -74,7 +74,7 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="{{ route('profil.edit') }}" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
@@ -181,6 +181,21 @@
                         <ul class="treeview-menu">
                             <li><a href="{{ route('merek.index') }}"><i class="fa fa-eye"></i> Merek View </a></li>
                             <li><a href="{{ route('merek.create') }}"><i class="fa fa-plus-square"></i> Merek Create
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li class=" treeview">
+                        <a href="#">
+                            <i class="fa fa-tasks"></i> <span>Order Management</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ route('merek.index') }}"><i class="fa fa-external-link-square"></i> Order Masuk </a></li>
+                            <li><a href="{{ route('merek.create') }}"><i class="fa fa-caret-square-o-right"></i> Order Diproses
+                                </a></li>
+                                <li><a href="{{ route('merek.create') }}"><i class="fa fa-paper-plane-o"></i> Order Dikirim
                                 </a></li>
                         </ul>
                     </li>
