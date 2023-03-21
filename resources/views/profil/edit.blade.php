@@ -11,16 +11,17 @@
     {{ session()->get('error') }}
 </div>
 @endif
-<form action="{{ route('profil.store') }}" enctype="multipart/form-data" method="post">
+<form action="{{ route('profil.update',$user->id) }}" enctype="multipart/form-data" method="post">
     @csrf
+    @method('put')
     <div class="box-body">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input  value="{{ old('name', $user->name) }}" type="text" class="form-control @error('username')
+            <label for="name">name</label>
+            <input  value="{{ old('name', $user->name) }}" type="text" class="form-control @error('name')
               is-invalid
-            @enderror" id="username" name="username" placeholder="Username">
+            @enderror" id="name" name="name" placeholder="name">
         </div>
-        @error('username')
+        @error('name')
           <div class="alert alert-danger">
             {{ $message }}
           </div>
@@ -43,17 +44,6 @@
             @enderror" id="img"  name="img">
         </div>
         @error('img')
-          <div class="alert alert-danger">
-            {{ $message }}
-          </div>
-        @enderror
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input  value="{{ old('password', $user->password) }}" type="text" class="form-control @error('password')
-              is-invalid
-            @enderror" id="password" name="password" >
-        </div>
-        @error('password')
           <div class="alert alert-danger">
             {{ $message }}
           </div>

@@ -58,7 +58,7 @@
         @enderror
         <div class="form-group">
             <label for="harga">Harga</label>
-            <input type="number" class="form-control @error('harga')
+            <input type="text" class="form-control @error('harga')
               is-invalid
             @enderror" id="harga" name="harga" placeholder="Harga">
         </div>
@@ -82,7 +82,7 @@
 
     <div class="box-footer">
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <button type="reset" class="btn btn-danger">Reset</button>
+        <a href="{{ route('produk.index') }}" class="btn btn-danger">Batal</a>
       </div>
 </form>
 @section('header','Create Produk')

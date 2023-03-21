@@ -9,6 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>OrnotShop | @yield('title')</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
@@ -22,6 +23,7 @@
 
 <body>
             @yield('content')
+            @include('sweetalert::alert')
 
     <script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="/vendor/bootstrap/js/popper.js"></script>

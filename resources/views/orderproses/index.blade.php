@@ -1,23 +1,27 @@
 @extends('layouts.tables')
-@section('title','Produk view')
+@section('title','Order Proses view')
 @section('contend')
-
-    <div class="box-header">
-        <a href="{{ route('produk.create') }}" class=" btn btn-primary">Create</a>
-    </div>
+<div class="box">
+    @if (session()->has('success'))
+<div class="alert alert-success">
+    {{ session()->get('success')}}
+</div>
+@endif
+@if (session()->has('error'))
+<div class="alert alert-danger">
+    {{ session()->get('error') }}
+</div>
+@endif
     <!-- /.box-header -->
     <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Nama Produk</th>
-                    <th>Kategori</th>
-                    <th>Merek</th>
-                    <th>Deskripsi</th>
-                    <th>img</th>
-                    <th>Harga</th>
-                    <th>Stock</th>
+                    <th>item</th>
+                    <th>user</th>
+                    <th>Alamat</th>
+                    <th>Status</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -25,17 +29,14 @@
                 @php
                 $no = 1;
                 @endphp
-                @forelse ($produk as $item)
+                @forelse ($order as $item)
 
                 <tr>
                     <td>{{ $no++ }}.</td>
-                    <td>{{ $item->nm_produk }}</td>
-                    <td>{{ $item->kategori }}</td>
-                    <td>{{ $item->merek }}</td>
-                    <td>{{ $item->deskripsi }}</td>
-                    <td><img src="{{ asset($item->img_1) }}" alt="{{ $item->nm_produk }}" width="80px" height="80px" class=""></td>
-                    <td>{{ $item->harga }}</td>
-                    <td>{{ $item->stock }}</td>
+                    <td>{{ $item->item }}</td>
+                    <td>{{ $item->user }}</td>
+                    <td>{{ $item->alamat }}</td>
+                    <td>{{ $item->status }}</td>
                     <td class="text-center">
                         <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                             action="{{ route('produk.destroy', $item->id) }}" method="POST">
@@ -62,6 +63,6 @@
     <!-- /.box-body -->
 </div>
 
-@section('header', 'Produk')
-@section('aktif', 'Produk')
+@section('header', 'Order Proses')
+@section('aktif', 'Order Proses')
 @endsection

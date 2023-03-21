@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\merek;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class merekController extends Controller
 {
@@ -16,7 +18,7 @@ class merekController extends Controller
     public function index()
     {
         $merek = merek::paginate();
-        return view('merek.index',compact('merek'));
+        return view('merek.index', compact('merek'));
     }
 
     /**
@@ -45,12 +47,20 @@ class merekController extends Controller
         $image = $request->file('img')->store('public/image');
         $image = str_replace('public/', 'storage/', $image);
 
-        merek::create([
-            'merek' => $request->merek,
-            'img' => $image,
-        ]);
+        try {
+            merek::create([
+                'merek' => $request->merek,
+                'img' => $image,
+            ]);
+            Alert::success('Success', 'Data Berhasil Ditambahkan');
+            return redirect()->route('merek.index');
+        } catch (Exception $e) {
+            // Alert::error('error','Data Gagal Ditambahkan');
+            Alert::error('Error', $e->getMessage());
+            return redirect()->route('merek.index');
+        }
 
-        return redirect()->route('merek.index')->with(['success', 'Data Berhasil Ditambahkan']);
+        //return redirect()->route('merek.index')->with(['success', 'Data Berhasil Ditambahkan']);
     }
 
     /**
@@ -72,7 +82,7 @@ class merekController extends Controller
      */
     public function edit(merek $merek)
     {
-        return view('merek.index',compact('merek'));
+        return view('merek.index', compact('merek'));
     }
 
     /**

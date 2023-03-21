@@ -59,7 +59,7 @@
         @enderror
         <div class="form-group">
             <label for="harga">Harga</label>
-            <input value="{{ old('harga', $produk->harga) }}" type="number" class="form-control @error('harga')
+            <input value="{{ old('harga', $produk->harga) }}" type="text" class="form-control @error('harga')
               is-invalid
             @enderror" id="harga" name="harga" placeholder="Harga">
         </div>

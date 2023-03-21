@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>OrnotShop | @yield('title')</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -26,6 +27,7 @@
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
+    @include('sweetalert::alert')
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
@@ -192,10 +194,10 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="{{ route('merek.index') }}"><i class="fa fa-external-link-square"></i> Order Masuk </a></li>
-                            <li><a href="{{ route('merek.create') }}"><i class="fa fa-caret-square-o-right"></i> Order Diproses
+                            <li><a href="{{ route('ordermasuk.index') }}"><i class="fa fa-external-link-square"></i> Order Masuk </a></li>
+                            <li><a href="{{ route('orderproses.index') }}"><i class="fa fa-caret-square-o-right"></i> Order Diproses
                                 </a></li>
-                                <li><a href="{{ route('merek.create') }}"><i class="fa fa-paper-plane-o"></i> Order Dikirim
+                                <li><a href="{{ route('orderselesai.index') }}"><i class="fa fa-paper-plane-o"></i> Order Dikirim
                                 </a></li>
                         </ul>
                     </li>

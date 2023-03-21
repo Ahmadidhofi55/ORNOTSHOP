@@ -36,6 +36,6 @@
         <button type="reset" class="btn btn-danger">Reset</button>
       </div>
 </form>
-@section('header','Create Kategori')
-@section('aktif','Create Kategori')
+@section('header','Create Merek')
+@section('aktif','Create Merek')
 @endsection

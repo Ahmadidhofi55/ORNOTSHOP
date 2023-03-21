@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\merek;
 use App\Models\produk;
 use App\Models\kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class produkController extends Controller
 {
@@ -64,8 +66,8 @@ class produkController extends Controller
             'stock' => $request->stock,
         ]);
 
-        return redirect()->route('produk.index')->with(['success' => 'Data Berhasil Ditambahkan']);
-
+        Alert::success('Success', 'Data Berhasil Ditambahkan');
+        return redirect()->route('produk.index');
     }
 
 
@@ -109,7 +111,7 @@ class produkController extends Controller
             'merek' => 'required',
             'deskripsi'=> 'required|min:16',
             'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'harga' => 'required|numeric',
+            'harga' => 'required',
             'stock' => 'required|numeric',
         ]);
 
@@ -147,7 +149,8 @@ class produkController extends Controller
         }
 
         //redirect to index
-        return redirect()->route('produk.index')->with(['success' => 'Data Berhasil Diubah!']);
+        Alert::success('Success', 'Data Berhasil Diedit');
+        return redirect()->route('produk.index');
     }
 
 
@@ -163,7 +166,8 @@ class produkController extends Controller
             Storage::delete(str_replace('storage/', 'public/', $produk->img));
             $produk->save();
             $produk->delete();
-            return redirect()->route('produk.index')->with(['success' => 'Data Berhasil Dihapus!']);
+            Alert::success('Success', 'Data Berhasil Dihapus');
+            return redirect()->route('produk.index');
         }
 
     }

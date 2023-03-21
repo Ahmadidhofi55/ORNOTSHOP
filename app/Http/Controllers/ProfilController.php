@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\user;
-use App\Models\produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class ProfilController extends Controller
@@ -60,8 +61,8 @@ class ProfilController extends Controller
      */
     public function edit(user $user)
     {
-        $profil = user::paginate();
-        return view('profil.index',compact('user','profil'));
+        $user = Auth::user();
+        return view('profil.edit', compact('user'));
     }
 
     /**
@@ -75,10 +76,9 @@ class ProfilController extends Controller
     {
         $this->validate($request, [
             'img' => 'image|mimes:png,jpg,svg',
-            'password' => 'min:8',
+            'name' => 'required'
         ]);
-
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('img')) {
 
             //upload new image
             $image = $request->file('img')->store('public/image');
@@ -91,20 +91,17 @@ class ProfilController extends Controller
             $user->update([
                 'name' => $request->name,
                 'img' => $image,
-                'password' => $request->password,
             ]);
 
         } else {
 
             //update post without image
             $user->update([
-                'name' => $request->name,
-                'password' => $request->password,
+                'name' =>$request->name,
             ]);
         }
-
         //redirect to index
-        return redirect()->route('profil')->with(['success' => 'Data Berhasil Diubah!']);
+        return redirect()->route('profil.edit',$user->id,)->with(['success' => 'Data Berhasil Diubah!']);
     }
 
     /**
