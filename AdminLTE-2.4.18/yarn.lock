@@ -2775,7 +2775,7 @@ inline-source-map@~0.6.0:
   dependencies:
     source-map "~0.5.3"
 
-inputmask@^3.3.11:
+inputmask@^3.3.7:
   version "3.3.11"
   resolved "https://registry.yarnpkg.com/inputmask/-/inputmask-3.3.11.tgz#1421c94ae28c3dcd1b4d26337b508bb34998e2d8"
   integrity sha512-qyqC+MmJjOZrqojwY5T6KvWbdlPW3BO+1W7+2Y5bdSmwv//gkF8A5nXjPpZHD+rk1KRRBvsZ5oNGpJAKfVnqjw==
@@ -2803,11 +2803,9 @@ into-stream@^3.1.0:
     p-is-promise "^1.1.0"
 
 ion-rangeslider@^2.3:
-  version "2.3.0"
-  resolved "https://registry.npmjs.org/ion-rangeslider/-/ion-rangeslider-2.3.0.tgz"
-  integrity sha512-7TtH9/X4Aq/xCzboWxjwlv20gVqR90Ysc3aehMlTuH2/ULaSxpB80hq+yvD1N0FwWbPDtxQpjQrz/iX+LWXKmg==
-  dependencies:
-    jquery ">=1.8"
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/ion-rangeslider/-/ion-rangeslider-2.3.1.tgz#92ade52cb56fc30b9162d0483ff02b6f9ed237c2"
+  integrity sha512-6V+24FD13/feliI485gnRHZYD9Ev64M5NAFTxnVib516ATHa9PlXQrC+nOiPngouRYTCLPJyokAJEi3e1Umi5g==
 
 ionicons@^3:
   version "3.0.0"
@@ -3064,7 +3062,7 @@ jquery-ui@^1.12.1:
   resolved "https://registry.npmjs.org/jquery-ui/-/jquery-ui-1.12.1.tgz"
   integrity sha1-vLQEXI3QU5wTS8FIjN0+dop6nlE=
 
-jquery@>=1.10, jquery@>=1.5, jquery@>=1.7, "jquery@>=1.7.1 <4.0.0", jquery@>=1.8, jquery@^3.4.1:
+jquery@>=1.10, jquery@>=1.5, jquery@>=1.7, "jquery@>=1.7.1 <4.0.0", jquery@^3.4.1:
   version "3.4.1"
   resolved "https://registry.npmjs.org/jquery/-/jquery-3.4.1.tgz"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
