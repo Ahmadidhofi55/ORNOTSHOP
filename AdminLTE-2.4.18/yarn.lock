@@ -73,11 +73,6 @@ ajv@^6.5.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-almond@~0.3.1:
-  version "0.3.3"
-  resolved "https://registry.npmjs.org/almond/-/almond-0.3.3.tgz"
-  integrity sha1-oOfJWsdiTWQXtElLHmi/9pMWiiA=
-
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.npmjs.org/amdefine/-/amdefine-1.0.1.tgz"
@@ -2775,7 +2770,7 @@ inline-source-map@~0.6.0:
   dependencies:
     source-map "~0.5.3"
 
-inputmask@^3.3.11:
+inputmask@^3.3.7:
   version "3.3.11"
   resolved "https://registry.yarnpkg.com/inputmask/-/inputmask-3.3.11.tgz#1421c94ae28c3dcd1b4d26337b508bb34998e2d8"
   integrity sha512-qyqC+MmJjOZrqojwY5T6KvWbdlPW3BO+1W7+2Y5bdSmwv//gkF8A5nXjPpZHD+rk1KRRBvsZ5oNGpJAKfVnqjw==
@@ -3048,11 +3043,6 @@ jquery-knob@^1.2.11:
   version "1.2.11"
   resolved "https://registry.npmjs.org/jquery-knob/-/jquery-knob-1.2.11.tgz"
   integrity sha1-83w528HHpqbBLNsu1Pa/+2g/ENY=
-
-jquery-mousewheel@~3.1.13:
-  version "3.1.13"
-  resolved "https://registry.npmjs.org/jquery-mousewheel/-/jquery-mousewheel-3.1.13.tgz"
-  integrity sha1-BvAzXxbjU6aV5yBr9QUDy1I6buU=
 
 jquery-sparkline@^2.4:
   version "2.4.0"
@@ -4611,12 +4601,9 @@ seek-bzip@^1.0.5:
     commander "~2.8.1"
 
 select2@^4.0.3:
-  version "4.0.5"
-  resolved "https://registry.npmjs.org/select2/-/select2-4.0.5.tgz"
-  integrity sha1-eqxQaSVhmFs007guxV4ib4lg1Ao=
-  dependencies:
-    almond "~0.3.1"
-    jquery-mousewheel "~3.1.13"
+  version "4.0.13"
+  resolved "https://registry.yarnpkg.com/select2/-/select2-4.0.13.tgz#0dbe377df3f96167c4c1626033e924372d8ef44d"
+  integrity sha512-1JeB87s6oN/TDxQQYCvS5EFoQyvV6eYMZZ0AeA4tdFDYWN3BAGZ8npr17UBFddU0lgAt3H0yjX3X6/ekOj1yjw==
 
 semver-regex@^2.0.0:
   version "2.0.0"
