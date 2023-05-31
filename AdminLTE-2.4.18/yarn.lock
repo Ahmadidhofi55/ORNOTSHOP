@@ -778,9 +778,9 @@ charm@~0.1.0:
   integrity sha1-BsIe7RobBq62dVPNxT4jJ0usIpY=
 
 chart.js@^1:
-  version "1.0.2"
-  resolved "https://registry.npmjs.org/chart.js/-/chart.js-1.0.2.tgz"
-  integrity sha1-rVfSIpz9jM9ZVRR+gSG0kR5p3+c=
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-1.1.1.tgz#a9b17054220bd45cbdb176fd6bcb8783ef871a7d"
+  integrity sha512-1lcx4nsmYk3C50xMWFucOccdU7jh+RoHP25IiPlUoE6Qf317my+Nm48JOyPFrBRscqy6O4kkxif+omPKPkqWMA==
 
 cheerio@^0.22.0:
   version "0.22.0"
@@ -2775,7 +2775,7 @@ inline-source-map@~0.6.0:
   dependencies:
     source-map "~0.5.3"
 
-inputmask@^3.3.11:
+inputmask@^3.3.7:
   version "3.3.11"
   resolved "https://registry.yarnpkg.com/inputmask/-/inputmask-3.3.11.tgz#1421c94ae28c3dcd1b4d26337b508bb34998e2d8"
   integrity sha512-qyqC+MmJjOZrqojwY5T6KvWbdlPW3BO+1W7+2Y5bdSmwv//gkF8A5nXjPpZHD+rk1KRRBvsZ5oNGpJAKfVnqjw==
